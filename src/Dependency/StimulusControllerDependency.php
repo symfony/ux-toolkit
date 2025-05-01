@@ -14,21 +14,21 @@ namespace Symfony\UX\Toolkit\Dependency;
 use Symfony\UX\Toolkit\Assert;
 
 /**
- * Represents a dependency on a component.
+ * Represents a dependency on a Stimulus controller.
  *
  * @internal
  *
  * @author Hugo Alliaume <hugo@alliau.me>
  */
-final class ComponentDependency implements Dependency
+final class StimulusControllerDependency implements Dependency
 {
     /**
-     * @param non-empty-string $name The name of the component, e.g. "Table" or "Table:Body"
+     * @param non-empty-string $name
      */
     public function __construct(
         public string $name,
     ) {
-        Assert::componentName($this->name);
+        Assert::stimulusControllerName($this->name);
     }
 
     public function __toString(): string
