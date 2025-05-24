@@ -123,7 +123,7 @@ EOF
             } else {
                 $io->error(null === $componentName
                     ? 'It seems that no local kits are available and it should not happens. Please open an issue on https://github.com/symfony/ux to report this.'
-                    : sprintf("The component \"%s\" does not exist in any local kits.\n\nYou can try to run one of the following commands to interactively install components:\n%s\n\nOr you can try one of the community kits https://github.com/search?q=topic:ux-toolkit&type=repositories", $componentName, implode("\n", array_map(fn (string $availableKitName) => sprintf('$ bin/console %s --kit %s', $this->getName(), $availableKitName), $availableKitNames)))
+                    : \sprintf("The component \"%s\" does not exist in any local kits.\n\nYou can try to run one of the following commands to interactively install components:\n%s\n\nOr you can try one of the community kits https://github.com/search?q=topic:ux-toolkit&type=repositories", $componentName, implode("\n", array_map(fn (string $availableKitName) => \sprintf('$ bin/console %s --kit %s', $this->getName(), $availableKitName), $availableKitNames)))
                 );
 
                 return Command::FAILURE;
